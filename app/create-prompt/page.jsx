@@ -33,9 +33,9 @@ const CreatePrompt = () => {
                 router.push('/')
             }
         } catch (error) {
-            console.log(error)
+            return new Response("Error creating prompt", { status: 500 })
         }finally{
-
+            setSubmitting(false)
         }
     }
 
