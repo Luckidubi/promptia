@@ -1,5 +1,5 @@
 # Promptia
-Promptia is a Next.js web application for users to share different AI prompts. With Promptia, users can sign in, create prompts with associated tags, and view prompts created by other users.
+Promptia is a fullstack Next.js web application for users to share different AI prompts. With Promptia, users can sign in, create prompts with associated tags, and view prompts created by other users.
 
 ## Installation
 To install Promptia, first download the project from GitHub. Then, run ```npm install``` to install all necessary dependencies. Finally, run ```npm run dev``` to start the development server.
