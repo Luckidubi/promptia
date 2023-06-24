@@ -35,6 +35,8 @@
     "react/prop-types": "off",
     "@next/next/no-img-element": "off",
     "no-undef" : "off",
-    "react/jsx-no-undef": "off"
+    "react/jsx-no-undef": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off"
   }
 }

@@ -13,7 +13,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
     const [copied, setCopied] = useState("");
 
     const handleProfileClick = () => {
-        console.log(post);
+        
 
         if (post.creator?._id === session?.user.id) return router.push("/profile");
 
@@ -29,7 +29,17 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         <div className="prompt_card">
             <div className="flex justify-between items-start gap-5">
                 <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer"
-                    onClick={handleProfileClick}>
+
+                    onClick={handleProfileClick
+                    }
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            handleProfileClick();
+                        }
+                    }}
+                    tabIndex={0}
+                    role="button"
+                >
                     <Image
                         src={post.creator?.image}
                         alt="user image"
@@ -48,7 +58,13 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
                     </div>
 
                 </div>
-                <div className='copy_btn' onClick={handleCopy}>
+                <div className='copy_btn' onClick={handleCopy} onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        handleCopy();
+                    }
+                }}
+                    role="button"
+                    tabIndex={0}>
                     <Image
                         src={
                             copied === post.prompt
@@ -66,6 +82,13 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             <p
                 className='font-inter text-sm blue_gradient cursor-pointer'
                 onClick={() => handleTagClick && handleTagClick(post.tag)}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        handleTagClick && handleTagClick(post.tag);
+                    }
+                }}
+
+
             >
                 #{post.tag}
             </p>
@@ -75,6 +98,13 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
                     <p
                         className='font-inter text-sm green_gradient cursor-pointer'
                         onClick={handleEdit}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                handleEdit(post);
+                            }
+                        }}
+
+
                     >
                         Edit
                     </p>
